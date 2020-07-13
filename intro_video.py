@@ -30,8 +30,11 @@ while cap.isOpened():
 
         out.write(frame)
 
-        if key == 27 & 0xff == ord('q'):
-           break
+        if key == ord('q'):
+            cap.release()
+            out.release()
+            cv2.destroyAllWindows()
+
 
     else:
         break
