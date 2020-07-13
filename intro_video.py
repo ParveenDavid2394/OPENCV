@@ -4,13 +4,18 @@ cap = cv2.VideoCapture(0)
 
 # save the video
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
+out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))  # 20.0 is frames per sec
 
 while cap.isOpened():
 
     ret, frame = cap.read()
 
+    # if true
     if ret:
+
+        # method to get width and height of video
+        print('width = ',cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        print('height = ',cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
         cv2.imshow('video', frame)
 
@@ -25,8 +30,11 @@ while cap.isOpened():
 
         out.write(frame)
 
-        if key == 27:
-            break
+        if key == 27 & 0xff == ord('q'):
+           break
+
+    else:
+        break
 
 cap.release()
 out.release()
