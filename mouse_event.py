@@ -3,10 +3,9 @@ import numpy as np
 
 # check the available mouse click events in cv2 library
 # events = [i for i in dir(cv2) if 'EVENT' in i]
-#
+
 # for event in events:
 #     print(event)
-
 
 def click_event(event, x, y, flag, param):
     font = cv2.FONT_HERSHEY_COMPLEX
@@ -24,14 +23,17 @@ def click_event(event, x, y, flag, param):
         green = img[y, x, 1]
         red = img[y, x, 2]
         textBGR = '{0},{1},{2}'.format(blue, green, red)
-        cv2.putText(img, textBGR, (x, y), font, 0.5, (0,0,0), 1, cv2.LINE_AA)
+        cv2.putText(img, textBGR, (x, y), font, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
         cv2.imshow('image', img)
 
 
 # img = np.zeros([512, 512, 3], np.uint8)
 img = cv2.imread('lena.jpg')
 
-cv2.imshow('image',img)
+cv2.imshow('image', img)
+
+# function to catch mouse events
 cv2.setMouseCallback('image', click_event)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
