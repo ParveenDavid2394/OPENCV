@@ -28,8 +28,13 @@ while cap.isOpened():
         font = cv2.FONT_HERSHEY_COMPLEX
         text = 'Width:{0} Height:{1}'.format(cap.get(cv2.CAP_PROP_FRAME_WIDTH),cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
+        # flip to act as mirror
+        frame = cv2.flip(frame, 1, 0)
+
         frame = cv2.putText(frame, datet, (10,50), font, 1, (255,255,255), 1, cv2.LINE_AA)
         frame = cv2.putText(frame, text, (10, 100), font, 1, (255, 255, 255), 1, cv2.LINE_AA)
+
+
 
         cv2.imshow('video',frame)
         k = cv2.waitKey(1)
