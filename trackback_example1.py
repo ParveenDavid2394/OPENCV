@@ -35,6 +35,7 @@ while True:
 
     # use condition if switch == 1 then can change color
     s = cv2.getTrackbarPos(switch,'image')
+
     if s == 1:
         # changes on each color is set on the img image
         img[:] = [b,g,r]
