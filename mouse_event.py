@@ -28,7 +28,8 @@ def click_event(event, x, y, flag, param):
 
 
 # img = np.zeros([512, 512, 3], np.uint8)
-img = cv2.imread('lena.jpg')
+# img = cv2.imread('lena.jpg')
+img = cv2.imread('messi5.jpg')
 
 cv2.imshow('image', img)
 
